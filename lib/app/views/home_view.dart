@@ -5,12 +5,9 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:theme_app/app/logic/controllers/theme_controller.dart';
 
-
-
 class HomeView extends StatelessWidget {
-   HomeView({Key? key}) : super(key: key);
-   final controller = Get.find<ThemeController>();
-
+  HomeView({Key? key}) : super(key: key);
+  final controller = Get.find<ThemeController>();
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +16,7 @@ class HomeView extends StatelessWidget {
         title: const Text('Flutter Theme'),
         centerTitle: true,
       ),
-      body: GetBuilder<ThemeController>(builder: (_){
+      body: GetBuilder<ThemeController>(builder: (_) {
         return Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -51,8 +48,7 @@ class HomeView extends StatelessWidget {
                         color: controller.textColor,
                         fontWeight: FontWeight.w900,
                       ),
-                      child:
-                      Text(controller.currentModeName.value)),
+                      child: Text(controller.currentModeName.value)),
                 ),
               ),
               Text(
@@ -65,7 +61,7 @@ class HomeView extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               CupertinoSwitch(
-                value:   controller.settingsGetStorageBox.read('isDarkMode'),
+                value: controller.settingsGetStorageBox.read('isDarkMode'),
                 onChanged: (bool val) {
                   controller.toggleTheme();
                   Get.snackbar(
@@ -85,7 +81,8 @@ class HomeView extends StatelessWidget {
                     snackStyle: SnackStyle.FLOATING,
                     // maxWidth: 150,
                     mainButton: TextButton(
-                      style: TextButton.styleFrom(primary: Colors.black),
+                      style:
+                          TextButton.styleFrom(foregroundColor: Colors.black),
                       onPressed: () {
                         controller.changeAppTheme();
                         Get.back();
@@ -97,7 +94,7 @@ class HomeView extends StatelessWidget {
                       ),
                     ),
                     backgroundColor:
-                    controller.isDarkTheme ? Colors.white : Colors.black,
+                        controller.isDarkTheme ? Colors.white : Colors.black,
                     snackPosition: SnackPosition.BOTTOM,
                   );
                 },
@@ -126,7 +123,8 @@ class HomeView extends StatelessWidget {
                       snackStyle: SnackStyle.FLOATING,
                       // maxWidth: 150,
                       mainButton: TextButton(
-                        style: TextButton.styleFrom(primary: Colors.black),
+                        style:
+                            TextButton.styleFrom(foregroundColor: Colors.black),
                         onPressed: () {
                           controller.changeAppTheme();
                           Get.back();
@@ -137,9 +135,8 @@ class HomeView extends StatelessWidget {
                           style: Theme.of(context).textTheme.button,
                         ),
                       ),
-                      backgroundColor:controller.isDarkTheme
-                          ? Colors.white
-                          : Colors.black,
+                      backgroundColor:
+                          controller.isDarkTheme ? Colors.white : Colors.black,
                       snackPosition: SnackPosition.BOTTOM,
                     );
                   },

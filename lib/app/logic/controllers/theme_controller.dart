@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-
 class ThemeController extends GetxController
     with GetSingleTickerProviderStateMixin {
   late bool isDarkTheme = false;
@@ -11,18 +10,35 @@ class ThemeController extends GetxController
   // GetStorage for storing the theme setting
   final settingsGetStorageBox = GetStorage();
 
+  //! Not Related To Theme> Just for Animation
+  late Color textColor;
+  double fontSize = 20;
+  late AnimationController animationController;
+  //! <Not Related To Theme Just for Animation
+
+  Rx<String> currentModeName = ''.obs;
+
+  @override
+  void onInit() {
+    //Getting theme Stage from ThemeController when homeView initialized
+    //! Not Related To Theme > Just for Animation
+    animationController = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 430));
+    animationController.reset();
+    //! <Not Related To Theme Just for Animation
+    super.onInit();
+  }
+
   //! Getting Theme Stage From GetStorage and Set it to the ThemeMode this will be used in main.dart file
 
-  ThemeMode get themeStateFromGetStorageSettingBox => _getThemeFromGetStorageBox() ? ThemeMode.dark : ThemeMode.light;
-
+  ThemeMode get themeStateFromGetStorageSettingBox =>
+      getThemeFromGetStorageBox() ? ThemeMode.dark : ThemeMode.light;
 
   // private Method to Get GetStorage  theme Setting value adn Return it
-  bool _getThemeFromGetStorageBox() {
-    themeGetStorageSetting =
-        settingsGetStorageBox.read('isDarkMode') ?? false;
-    print(themeGetStorageSetting);
+  bool getThemeFromGetStorageBox() {
+    themeGetStorageSetting = settingsGetStorageBox.read('isDarkMode') ?? false;
     currentModeName.value = themeGetStorageSetting ? 'Dark' : 'Light';
-    textColor =themeGetStorageSetting ? Colors.white : Colors.red;
+    textColor = themeGetStorageSetting ? Colors.white : Colors.red;
     fontSize = themeGetStorageSetting ? 30 : 20;
     return themeGetStorageSetting;
   }
@@ -54,25 +70,6 @@ class ThemeController extends GetxController
 
   //Private Method to change theme
   void _changeThemeMode(ThemeMode themeMode) => Get.changeThemeMode(themeMode);
-  Rx<String> currentModeName = ''.obs;
-
-
-  //! Not Related To Theme> Just for Animation
-  late Color textColor;
-  double fontSize = 20;
-  late AnimationController animationController;
-  //! <Not Related To Theme Just for Animation
-
-  @override
-  void onInit() {
-    //Getting theme Stage from ThemeController when homeView initialized
-    //! Not Related To Theme > Just for Animation
-    animationController = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 430));
-    animationController.reset();
-    //! <Not Related To Theme Just for Animation
-    super.onInit();
-  }
 
   // Change Theme  Method That will call From HomeView
   void changeAppTheme() => _changeTheme();
@@ -83,7 +80,7 @@ class ThemeController extends GetxController
     return isDarkTheme;
   }
 
-  // Changeing Vale for Animation
+  // Changing Value for Animation
   void _animate() {
     if (isDarkTheme) {
       fontSize = 30;

@@ -1,5 +1,3 @@
-
-
 import 'package:theme_app/app/theme/dark_theme.dart';
 import 'package:theme_app/app/theme/light_theme.dart';
 
