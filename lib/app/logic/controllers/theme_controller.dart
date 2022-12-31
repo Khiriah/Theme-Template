@@ -48,7 +48,7 @@ class ThemeController extends GetxController
     settingsGetStorageBox.write('isDarkMode', boolData);
   }
 
-  // Method to change the Theme State when the user call it via Theme Chaneg Button
+  // Method to change the Theme State when the user call it via Theme Change Button
   void changeTheme({
     required bool isDarkMode,
     required Rx<String> modeName,
@@ -74,7 +74,7 @@ class ThemeController extends GetxController
   // Change Theme  Method That will call From HomeView
   void changeAppTheme() => _changeTheme();
 
-  // Toggleing the Theme
+  // Toggling the Theme
   bool toggleTheme() {
     _changeTheme();
     return isDarkTheme;

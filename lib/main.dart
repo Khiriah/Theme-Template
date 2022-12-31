@@ -9,22 +9,24 @@ import 'package:theme_app/app/theme/theme.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await GetStorage.init(); // Initialize GetStorage
-  runApp(const MyApp());
+
+  // Creating theme instance For Getting the ThemeMode Stage from the ThemeController
+  final ThemeController themeController = Get.put(ThemeController());
+  GetStorage().read<bool>('isDarkMode') == null
+      ? themeController.settingsGetStorageBox.write("isDarkMode", false)
+      : themeController.settingsGetStorageBox.read("isDarkMode");
+
+  runApp(MyApp(
+    themeController: themeController,
+  ));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  final ThemeController themeController;
+  const MyApp({Key? key, required this.themeController}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-
-    // Createing theme instance For Getting the ThemeMode Stage from the ThemeController
-    final ThemeController themeController = Get.put(ThemeController());
-
-    GetStorage().read<bool>('isDarkMode') == null
-        ? themeController.settingsGetStorageBox.write("isDarkMode", false)
-        : themeController.settingsGetStorageBox.read("isDarkMode");
-
     return GetMaterialApp(
       title: "Flutter Theme",
       debugShowCheckedModeBanner: false,
