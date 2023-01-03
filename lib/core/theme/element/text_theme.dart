@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:theme_app/core/theme/theme.dart';
 
 // Custom Text Styles Class For Both Dark and Light Theme
 class CustomTextTheme {
   //! Default Font is GoogleFonts.Ubuntu You can change it as your Need
 
   static const textColorLight =
-      Color(0xFF000000); // Light Theme Default Text Color
+      darkColor; // Light Theme Default Text Color
   static const textColorDark =
-      Color(0xFFFFFFFF); // Light Theme Default Text Color
+      lightColor; // Light Theme Default Text Color
 
   static TextTheme get textThemeLight {
     return textTheme(textColor: textColorLight);

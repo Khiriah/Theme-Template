@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:theme_app/app/logic/controllers/theme_controller.dart';
+import 'package:theme_app/core/logic/controllers/theme_controller.dart';
 
 class HomeView extends StatelessWidget {
   HomeView({Key? key}) : super(key: key);

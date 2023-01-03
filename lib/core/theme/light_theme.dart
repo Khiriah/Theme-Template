@@ -1,24 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:theme_app/core/theme/theme.dart';
 import 'element/text_theme.dart';
 
-// ignore: non_constant_identifier_names
+
 ThemeData LightThemeData() {
   return ThemeData(
     brightness: Brightness
         .light, //Setting the Brightness to light  so that this can be used as Light ThemeData
-    scaffoldBackgroundColor: Colors.white,
+    scaffoldBackgroundColor: lightColor,
     textTheme: CustomTextTheme
         .textThemeLight, //Setting the Text Theme to LightTextTheme
-
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      selectedIconTheme: IconThemeData(
+        color: mainColor,
+        size: 24,
+      ),
+      unselectedIconTheme: IconThemeData(
+        color: darkColor,
+        size: 24,
+      ),
+    ),
     appBarTheme: const AppBarTheme(
-      backgroundColor: Colors.redAccent,
+      backgroundColor: mainColor,
       elevation: 0,
       centerTitle: true,
     ),
 
     elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
-      backgroundColor: MaterialStateProperty.all<Color>(Colors.redAccent),
+      backgroundColor: MaterialStateProperty.all<Color>(mainColor),
     )),
   );
 }
