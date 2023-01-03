@@ -5,6 +5,7 @@ import 'element/text_theme.dart';
 
 ThemeData LightThemeData() {
   return ThemeData(
+    iconTheme: const IconThemeData(color: darkColor),
     brightness: Brightness
         .light, //Setting the Brightness to light  so that this can be used as Light ThemeData
     scaffoldBackgroundColor: lightColor,
@@ -25,6 +26,7 @@ ThemeData LightThemeData() {
 
     appBarTheme: const AppBarTheme(
       backgroundColor: mainColor,
+      iconTheme: const IconThemeData(color: darkColor),
       elevation: 0,
       centerTitle: true,
     ),

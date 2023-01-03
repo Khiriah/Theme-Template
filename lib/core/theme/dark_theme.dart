@@ -5,6 +5,7 @@ import 'element/text_theme.dart';
 // ignore: non_constant_identifier_names
 ThemeData DarkThemeData() {
   return ThemeData(
+    iconTheme: const IconThemeData(color: lightColor),
     brightness: Brightness
         .dark, //Setting the Brightness to Dark  so that this can be used as Dark ThemeData
     scaffoldBackgroundColor: darkColor,
@@ -12,7 +13,11 @@ ThemeData DarkThemeData() {
     textTheme:
         CustomTextTheme.textThemeDark, //Setting the Text Theme to DarkTextTheme
 
-    appBarTheme: const AppBarTheme(centerTitle: true),
+    appBarTheme: const AppBarTheme(
+      backgroundColor: darkColor,
+      iconTheme: IconThemeData(color: lightColor),
+      centerTitle: true,
+    ),
 
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       selectedIconTheme: IconThemeData(
@@ -28,8 +33,7 @@ ThemeData DarkThemeData() {
     elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
       backgroundColor: MaterialStateProperty.all<Color>(mainColor),
-    )
-    ),
+    )),
     //! You Can Set All Your Custom Dark Theme Here
   );
 }

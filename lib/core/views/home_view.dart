@@ -59,6 +59,11 @@ class HomeView extends StatelessWidget {
                 'Flutter Theme',
                 style: Theme.of(context).textTheme.overline,
               ),
+              const SizedBox(height: 2),
+              const Icon(
+                Icons.ac_unit,
+                size: 30,
+              ),
               const SizedBox(height: 20),
               CupertinoSwitch(
                 value: controller.settingsGetStorageBox.read('isDarkMode'),
