@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:theme_app/app/logic/bindings/initial_binding.dart';
-import 'package:theme_app/app/views/home_view.dart';
+import 'package:theme_app/core/logic/bindings/initial_binding.dart';
+import 'package:theme_app/core/views/home_view.dart';
 
 abstract class Routes {
   static const HOME = Paths.home;

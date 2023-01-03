@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:theme_app/app/logic/bindings/initial_binding.dart';
-import 'package:theme_app/app/logic/controllers/theme_controller.dart';
-import 'package:theme_app/app/routes/app_routes.dart';
-import 'package:theme_app/app/theme/theme.dart';
+import 'package:theme_app/core/logic/bindings/initial_binding.dart';
+import 'package:theme_app/core/logic/controllers/theme_controller.dart';
+import 'package:theme_app/core/routes/app_routes.dart';
+import 'package:theme_app/core/theme/theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
