@@ -8,9 +8,11 @@ ThemeData LightThemeData() {
     brightness: Brightness
         .light, //Setting the Brightness to light  so that this can be used as Light ThemeData
     scaffoldBackgroundColor: lightColor,
+
     textTheme: CustomTextTheme
         .textThemeLight, //Setting the Text Theme to LightTextTheme
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       selectedIconTheme: IconThemeData(
         color: mainColor,
         size: 24,
@@ -20,6 +22,7 @@ ThemeData LightThemeData() {
         size: 24,
       ),
     ),
+
     appBarTheme: const AppBarTheme(
       backgroundColor: mainColor,
       elevation: 0,
