@@ -22,7 +22,10 @@ Template app frontend created with Flutter . Included with animation and custome
 
 ✔️ Customed Elevated Butoon.
 
+✔️ Customed Bottom Navigation Bar.
+
 ✔️ Android ios and web.
+
 
 
 # Files Structure
